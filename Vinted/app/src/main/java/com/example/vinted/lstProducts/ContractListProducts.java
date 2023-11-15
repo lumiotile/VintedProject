@@ -7,9 +7,10 @@ import java.util.ArrayList;
 public interface ContractListProducts {
     
     public interface View{
-        void lstProducts(String filtro);
+        public void successProducts(ArrayList<Producto> lstPelicula);
+        void failureProducts(String err);
     }
-    public interface Presenter  {
+    public interface Model  {
         void productsAPI(String filtro,
                          OnProductsListener respuestaMovies);
         interface OnProductsListener{
@@ -17,8 +18,9 @@ public interface ContractListProducts {
             void onFailure(String err);
         }
     }
-    public interface Model{
-        public void successProducts(ArrayList<Producto> lstPelicula);
-        void failureProducts(String err);
+    public interface Presenter{
+        void productsAPI(String filtro, Model.OnProductsListener respuestaMovies);
+
+        void lstProducts(String filtro);
     }
 }

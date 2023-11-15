@@ -13,15 +13,9 @@ public class ModelListProducts implements ContractListProducts.Model {
         return null;
     }
 
-    @Override
-    public void successProducts(ArrayList<Producto> lstPelicula) {
-
-    }
 
     @Override
-    public void failureProducts(String err) {
+    public void productsAPI(String filtro, OnProductsListener respuestaMovies) {
 
     }
-
-
 }
