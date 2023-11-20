@@ -12,8 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class productsAdapter extends RecyclerView.Adapter<productsAdapter.ViewHolder> {
-
+public class productsAdapter  {
+/*
     ArrayList<reciclerview_list> reciclerview_list;
     Context context;
 
@@ -49,4 +49,5 @@ public class productsAdapter extends RecyclerView.Adapter<productsAdapter.ViewHo
             textView = itemView.findViewById(R.id.textView);
         }
     }
+    */
 }

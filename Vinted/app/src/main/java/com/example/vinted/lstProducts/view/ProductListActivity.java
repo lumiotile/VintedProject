@@ -20,9 +20,7 @@ public class ProductListActivity extends AppCompatActivity implements ContractLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_list);
-        recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        Toast.makeText(getApplicationContext(), "Holaa", Toast.LENGTH_SHORT).show();
     }
 
     @Override
