@@ -13,9 +13,11 @@ public class ModelLogin implements ContractLogin.Model {
 
     @Override
     public void loginAPI(User user, OnProductsListener respuesta) {
+
+        //Aqui irá la solicitud a base de datos.
         String username = user.getUsername();
         String pass = user.getPass();
-        if(username.equalsIgnoreCase("test") ){
+        if(username.equals("test") && pass.equals("test")){
             respuesta.onFinished(user);
         }else{
             respuesta.onFailure("Usuario o contraseña incorrectos");

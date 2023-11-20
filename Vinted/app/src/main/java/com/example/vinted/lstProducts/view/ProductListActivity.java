@@ -20,12 +20,12 @@ public class ProductListActivity extends AppCompatActivity implements ContractLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_list);
-        Toast.makeText(getApplicationContext(), "Holaa", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Login correcto", Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void successProducts(ArrayList<Producto> lstProducts) {
-
+        
     }
 
     @Override
