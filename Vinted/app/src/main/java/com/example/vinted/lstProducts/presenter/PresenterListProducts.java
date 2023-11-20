@@ -27,7 +27,7 @@ public class PresenterListProducts implements ContractListProducts.Presenter, Co
 
     @Override
     public void onFinished(ArrayList<Producto> lstPelicula) {
-
+        vista.successProducts(lstPelicula);
     }
 
     @Override

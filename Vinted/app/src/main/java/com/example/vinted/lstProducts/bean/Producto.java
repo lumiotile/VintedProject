@@ -7,6 +7,13 @@ public class Producto {
     private String descripcion;
     private float precio;
 
+    public Producto(String id, String nombre, String descripcion, float precio) {
+        this.id = id;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.precio = precio;
+    }
+
     public String getId() {
         return id;
     }

@@ -2,7 +2,6 @@ package com.example.vinted.lstProducts;
 
 import com.example.vinted.lstProducts.bean.Producto;
 
-import java.sql.ResultSet;
 import java.util.ArrayList;
 
 public interface ContractListProducts {
@@ -12,8 +11,8 @@ public interface ContractListProducts {
         void failureProducts(String err);
     }
     public interface Model  {
-        ResultSet productsAPI(String filtro,
-                              OnProductsListener respuestaMovies);
+        void productsAPI(String filtro,
+                         OnProductsListener respuestaMovies);
         interface OnProductsListener{
             void onFinished(ArrayList<Producto> lstPelicula);
             void onFailure(String err);

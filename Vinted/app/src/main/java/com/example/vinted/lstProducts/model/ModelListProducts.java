@@ -4,7 +4,6 @@ import com.example.vinted.conn.Connector;
 import com.example.vinted.lstProducts.ContractListProducts;
 import com.example.vinted.lstProducts.bean.Producto;
 
-import java.sql.ResultSet;
 import java.util.ArrayList;
 
 public class ModelListProducts implements ContractListProducts.Model {
@@ -18,8 +17,14 @@ public class ModelListProducts implements ContractListProducts.Model {
 
 
     @Override
-    public ResultSet productsAPI(String filtro, OnProductsListener respuestaMovies) {
-        String SQL = "";
-        return conn.executeQuery(SQL);
+    public void productsAPI(String filtro, OnProductsListener respuestaMovies) {
+        //String SQL = "";
+        //return conn.executeQuery(SQL);
+        ArrayList<Producto> listaProductos = new ArrayList<>();
+        listaProductos.add(new Producto("1", "Producto1", "Descripción1", 20));
+        listaProductos.add(new Producto("2", "Producto2", "Descripción2", 15));
+        listaProductos.add(new Producto("3", "Producto3", "Descripción3", 30));
+
+        respuestaMovies.onFinished(listaProductos);
     }
 }
