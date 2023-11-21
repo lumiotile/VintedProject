@@ -27,12 +27,6 @@ public class ModelLogin implements ContractLogin.Model {
         String username = user.getUsername();
         String pass = user.getToken();
 
-        /*if(username.equals("test") && pass.equals("test")){
-            respuesta.onFinished(user);
-        }else{
-            respuesta.onFailure("Usuario o contraseña incorrectos");
-        }*/
-
         // Crear una instancia de ApiService
         ApiService apiService = RetrofitCliente.getClient(ApiService.URL).create(ApiService.class);
 
