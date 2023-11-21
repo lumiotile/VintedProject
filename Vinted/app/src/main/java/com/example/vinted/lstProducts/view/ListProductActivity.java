@@ -4,33 +4,34 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.Toast;
 
 import com.example.vinted.R;
 import com.example.vinted.lstProducts.ContractListProducts;
+import com.example.vinted.lstProducts.ListProductsAdapter;
 import com.example.vinted.lstProducts.bean.Producto;
+import com.example.vinted.lstProducts.presenter.PresenterListProducts;
 
 import java.util.ArrayList;
 
-public class ProductListActivity extends AppCompatActivity implements ContractListProducts.View {
-
+public class ListProductActivity extends AppCompatActivity implements ContractListProducts.View{
+    private PresenterListProducts presenter = new PresenterListProducts(this);
     RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_product_list);
-        recyclerView = findViewById(R.id.recyclerView);
-        Toast.makeText(getApplicationContext(), "Login correcto", Toast.LENGTH_SHORT).show();
-
+        setContentView(R.layout.activity_list_product);
+        recyclerView = findViewById(R.id.recicler);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        presenter.lstProducts("");
     }
 
     @Override
     public void successProducts(ArrayList<Producto> lstProducts) {
-        ListProductsAdapter adapter = new ListProductsAdapter(lstProducts);
-        recyclerView.setAdapter(adapter);
+        recyclerView.setAdapter(new ListProductsAdapter(lstProducts));
+
     }
 
     @Override
@@ -38,3 +39,9 @@ public class ProductListActivity extends AppCompatActivity implements ContractLi
 
     }
 }
+
+
+
+
+
+

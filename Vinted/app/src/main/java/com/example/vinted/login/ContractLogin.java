@@ -1,8 +1,6 @@
 package com.example.vinted.login;
 
-import com.example.vinted.lstProducts.bean.Producto;
-import com.example.vinted.login.bean.User;
-import java.util.ArrayList;
+import com.example.vinted.beans.User;
 
 public interface ContractLogin {
     

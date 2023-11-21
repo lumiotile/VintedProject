@@ -10,10 +10,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.vinted.R;
+import com.example.vinted.beans.User;
 import com.example.vinted.login.ContractLogin;
-import com.example.vinted.login.bean.User;
 import com.example.vinted.login.presenter.LoginPresenter;
-import com.example.vinted.lstProducts.view.ProductListActivity;
+import com.example.vinted.lstProducts.view.ListProductActivity;
 
 public class LoginActivity extends AppCompatActivity implements ContractLogin.View {
 
@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity implements ContractLogin.Vi
             public void onClick(View v) {
                 User user  = new User();
                 user.setUsername(username.getText().toString());
-                user.setPass(password.getText().toString());
+                user.setToken(password.getText().toString());
                 presenter.login(user);
             }
         });
@@ -50,7 +50,7 @@ public class LoginActivity extends AppCompatActivity implements ContractLogin.Vi
 
     @Override
     public void successLogin(User user) {
-        Intent intent = new Intent(LoginActivity.this, ProductListActivity.class);
+        Intent intent = new Intent(LoginActivity.this, ListProductActivity.class);
         startActivity(intent);
     }
 

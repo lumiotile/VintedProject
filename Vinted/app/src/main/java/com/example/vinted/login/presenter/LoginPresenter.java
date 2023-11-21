@@ -1,7 +1,7 @@
 package com.example.vinted.login.presenter;
 
+import com.example.vinted.beans.User;
 import com.example.vinted.login.ContractLogin;
-import com.example.vinted.login.bean.User;
 import com.example.vinted.login.model.ModelLogin;
 
 public class LoginPresenter implements ContractLogin.Presenter, ContractLogin.Model.OnProductsListener {

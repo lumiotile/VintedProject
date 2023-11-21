@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.vinted.login.view.LoginActivity;
-import com.example.vinted.lstProducts.view.ProductListActivity;
 
 public class MainActivity extends AppCompatActivity {
 

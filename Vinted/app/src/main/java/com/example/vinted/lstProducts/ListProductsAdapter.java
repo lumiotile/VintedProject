@@ -1,4 +1,4 @@
-package com.example.vinted.lstProducts.view;
+package com.example.vinted.lstProducts;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,7 +23,7 @@ public class ListProductsAdapter extends RecyclerView.Adapter<ListProductsAdapte
     @NonNull
     @Override
     public ListProductsAdapter.ContactViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_product_list, null, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_product_element, parent, false);
         return new ContactViewHolder(view);
     }
 
@@ -44,9 +44,9 @@ public class ListProductsAdapter extends RecyclerView.Adapter<ListProductsAdapte
         public ContactViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            viewNombre = itemView.findViewById(R.id.viewNombre);
-            viewDescripcion = itemView.findViewById(R.id.viewDescripcion);
-            viewPrecio = itemView.findViewById(R.id.viewPrecio);
+            viewNombre = itemView.findViewById(R.id.nombreView);
+            viewDescripcion = itemView.findViewById(R.id.descipcionView);
+            viewPrecio = itemView.findViewById(R.id.precioView);
         }
     }
 }
