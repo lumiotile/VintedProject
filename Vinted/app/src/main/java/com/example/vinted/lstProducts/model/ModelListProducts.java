@@ -28,7 +28,6 @@ public class ModelListProducts implements ContractListProducts.Model {
     @Override
     public void productsAPI(String filtro, OnProductsListener respuesta) {
 
-
         ApiService apiService = RetrofitCliente.getClient(ApiService.URL).create(ApiService.class);
 
         Call<JsonProductoData> call =   apiService.getDataProductos("PRODUCTO.LIST");
@@ -56,6 +55,6 @@ public class ModelListProducts implements ContractListProducts.Model {
         });
 
 
-        
+
     }
 }

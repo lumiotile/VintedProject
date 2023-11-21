@@ -19,7 +19,7 @@ public interface ContractListProducts {
         }
     }
     public interface Presenter{
-        void productsAPI(String filtro, Model.OnProductsListener respuestaMovies);
+--
 
         void lstProducts(String filtro);
     }

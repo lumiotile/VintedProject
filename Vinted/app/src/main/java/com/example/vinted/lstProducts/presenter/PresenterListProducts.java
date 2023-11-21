@@ -15,13 +15,10 @@ public class PresenterListProducts implements ContractListProducts.Presenter, Co
         lstModel = new ModelListProducts();
     }
 
-    @Override
-    public void productsAPI(String filtro, ContractListProducts.Model.OnProductsListener respuestaMovies) {
-
-    }
 
     @Override
     public void lstProducts(String filtro) {
+
         lstModel.productsAPI("", this);
     }
 
