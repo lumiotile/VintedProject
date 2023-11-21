@@ -18,7 +18,6 @@ public class MyServlet  extends HttpServlet {
                                                                     //response.setContentType("text/plain;charset=UTF-8");
             PrintWriter out = response.getWriter();
             String action = request.getParameter("ACTION");
-            action = "USUARIO.LOGIN";
             String[] arrayAction = action.split("\\.");
 
             switch (arrayAction[0]) {
@@ -26,6 +25,8 @@ public class MyServlet  extends HttpServlet {
                     out.print(new UsuarioAction().execute(request, response));
                     // USUARIO.LOGIN
                     break;
+                case "PRODUCTO":
+                    out.print(new ProductoAction().execute(request, response));
             }
 
 

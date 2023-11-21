@@ -62,18 +62,15 @@ public class UsuarioAction {
         
         String email = request.getParameter("EMAIL");
         String pass = request.getParameter("PASSWORD");
-        email = "a";
-        pass = "1234";
         String msg = "";
         
     
             Usuario usuario = new Usuario();
                 usuario.setEmail(email);
                 usuario.setPassword(pass);
-            // UserDAO usuarioDAO = new UserDAO();
-             // boolean usuariosEncontrados = usuarioDAO.findAll(usuario);
-            boolean usuariosEncontrados  = true;
-            if( usuariosEncontrados == true){
+            UserDAO usuarioDAO = new UserDAO();
+            boolean usuariosEncontrados = usuarioDAO.findAll(usuario);
+            if(usuariosEncontrados){
                 msg = "{\n" +
                         "    \"message\": \"Login correcto. \",\n" +
                         "    \"lstUsers\": [\n" +

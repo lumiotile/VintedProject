@@ -5,12 +5,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.widget.Toast;
 
 import com.example.vinted.R;
 import com.example.vinted.lstProducts.ContractListProducts;
 import com.example.vinted.lstProducts.ListProductsAdapter;
-import com.example.vinted.lstProducts.bean.Producto;
+import com.example.vinted.beans.Producto;
 import com.example.vinted.lstProducts.presenter.PresenterListProducts;
 
 import java.util.ArrayList;

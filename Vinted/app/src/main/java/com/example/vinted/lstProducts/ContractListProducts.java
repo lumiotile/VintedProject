@@ -1,6 +1,6 @@
 package com.example.vinted.lstProducts;
 
-import com.example.vinted.lstProducts.bean.Producto;
+import com.example.vinted.beans.Producto;
 
 import java.util.ArrayList;
 

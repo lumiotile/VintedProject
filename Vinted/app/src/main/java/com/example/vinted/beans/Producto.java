@@ -1,4 +1,4 @@
-package com.example.vinted.lstProducts.bean;
+package com.example.vinted.beans;
 
 public class Producto {
 

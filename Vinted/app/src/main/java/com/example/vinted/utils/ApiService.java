@@ -2,6 +2,7 @@ package com.example.vinted.utils;
 
 
 
+import com.example.vinted.data_json.JsonProductoData;
 import com.example.vinted.data_json.JsonUserData;
 
 import retrofit2.Call;
@@ -23,8 +24,8 @@ public interface ApiService {
                                        @Query("EMAIL") String email,
                                        @Query("PASSWORD") String pass);
 
-        //@GET("MyServlet")
-        //Call<DataMovies> getDataMovies(@Query("ACTION") String action);
+        @GET("MyServlet")
+        Call<JsonProductoData> getDataProductos(@Query("ACTION") String action);
 
 
 

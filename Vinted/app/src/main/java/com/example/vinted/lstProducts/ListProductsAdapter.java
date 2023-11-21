@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.vinted.R;
-import com.example.vinted.lstProducts.bean.Producto;
+import com.example.vinted.beans.Producto;
 
 import java.util.ArrayList;
 
