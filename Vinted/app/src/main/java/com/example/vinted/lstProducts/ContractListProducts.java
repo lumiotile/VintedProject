@@ -19,7 +19,6 @@ public interface ContractListProducts {
         }
     }
     public interface Presenter{
---
 
         void lstProducts(String filtro);
     }

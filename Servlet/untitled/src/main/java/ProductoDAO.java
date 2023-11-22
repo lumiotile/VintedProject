@@ -40,9 +40,9 @@ public class ProductoDAO extends Producto{
 
                 // hay que ordenarlo en base a como esten los campos en la base de datos
 
-                producto.setNombre(rs.getString(1));
-                producto.setDescripcion(rs.getString(2));
-                producto.setPrecio(rs.getFloat(3));
+                producto.setNombre(rs.getString("nombre"));
+                producto.setDescripcion(rs.getString("descipcion"));
+                producto.setPrecio(rs.getFloat("precio"));
 
                 productos.add(producto);
 

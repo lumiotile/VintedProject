@@ -21,7 +21,7 @@ public class UsuarioAction {
 
         switch (arrayAction[1]) {
             case "REGISTER":
-                jsonRespuesta = register(request, response);
+                //jsonRespuesta = register(request, response);
                 break;
             case "LOGIN":
                 jsonRespuesta = login(request, response);
@@ -31,7 +31,7 @@ public class UsuarioAction {
     }
     
 
-    private String register(HttpServletRequest request,
+    /*private String register(HttpServletRequest request,
             HttpServletResponse response) {
         String email = request.getParameter("EMAIL");
         String pass = request.getParameter("PASSWORD");
@@ -39,10 +39,8 @@ public class UsuarioAction {
         String telefono = request.getParameter("TLF");
         
         Usuario usuario = new Usuario();
-            usuario.setEmail(email);
             usuario.setPassword(pass);
             usuario.setNombre(nombre);
-            usuario.setPhone(telefono);
         UserDAO usuarioDAO = new UserDAO();
         int numFilasModificadas = usuarioDAO.add(usuario);
         String respJSON = "";
@@ -54,7 +52,7 @@ public class UsuarioAction {
         }
         // Usuario.toArrayJSon(peliculas);
         return Usuario.toJSon(usuario);
-    }
+    }*/
 
     
     private String login(HttpServletRequest request,
@@ -66,16 +64,16 @@ public class UsuarioAction {
         
     
             Usuario usuario = new Usuario();
-                usuario.setEmail(email);
+                usuario.setNombre(email);
                 usuario.setPassword(pass);
             UserDAO usuarioDAO = new UserDAO();
-            boolean usuariosEncontrados = usuarioDAO.findAll(usuario);
-            if(usuariosEncontrados){
+            String usuariosEncontrados = usuarioDAO.findAll(usuario);
+            if(usuariosEncontrados != ""){
                 msg = "{\n" +
                         "    \"message\": \"Login correcto. \",\n" +
                         "    \"lstUsers\": [\n" +
                         "        {\n" +
-                        "            \"username\":\"" +  usuario.getEmail() + "\",\n" +
+                        "            \"username\":\"" +  usuario.getNombre() + "\",\n" +
                         "            \"token\": \"" +  usuario.getPassword() + "\" \n" +
                         "        }" +
                         "    ]\n" +
@@ -86,7 +84,7 @@ public class UsuarioAction {
                         "    \"message\": \"Login incorrecto. \",\n" +
                         "    \"lstUsers\": [\n" +
                         "        {\n" +
-                        "            \"username\":" +  usuario.getEmail() + ",\n" +
+                        "            \"username\":" +  usuario.getNombre() + ",\n" +
                         "            \"token\": " +  usuario.getPassword() + "\n" +
                         "        }" +
                         "    ]\n" +

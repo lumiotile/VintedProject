@@ -29,20 +29,26 @@ public class ModelLogin implements ContractLogin.Model {
 
         // Crear una instancia de ApiService
         ApiService apiService = RetrofitCliente.getClient(ApiService.URL).create(ApiService.class);
+        Log.d("LoginAPI", "Iniciar proceso de login");
+        Log.d("Username", username);
+        Log.d("PASS", pass);
+        Call<JsonUserData> call =   apiService.getDataUser("USUARIO.LOGIN", username, pass);
 
-        Call<JsonUserData> call =   apiService.getDataUser("USUARIO.LOGIN", "a", "1234");
         call.enqueue(new Callback<JsonUserData>() {
             @Override
             public void onResponse(Call<JsonUserData> call, Response<JsonUserData> response) {
                 if (response.isSuccessful()) {
                                 JsonUserData misDatos = response.body();
                                 if(misDatos!=null && misDatos.getLstUsers().size()>0){
+                                    Log.d("LoginAPI", "Datos recibidos correctamente");
                                     Log.e("Datos", misDatos.getLstUsers().get(0).getUsername());
                                     respuesta.onFinished(misDatos.getLstUsers().get(0));
                                 }else{
+                                    Log.e("LoginAPI", "Error en los datos recibidos");
                                     Log.e("Error de datos", "1");
                                 }
                 }else{
+                    Log.e("LoginAPI", "Error en la respuesta del servidor");
                     Log.e("Response Error", "Not succesful");
                 }
             }

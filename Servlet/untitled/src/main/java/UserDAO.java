@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 
+import com.google.gson.Gson;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -16,51 +18,62 @@ public class UserDAO extends Usuario{
         private static final String SQL_INSERT = "INSERT INTO USUARIOS (EMAIL, NOMBRE_USUARIO, CONTRASENA, PHONE) VALUES ";
                                                 //INSERT INTO APP.USUARIO (ID, EMAIL, PASSWORD) VALUES (1, 'A', '1234')
                                                 // INSERT INTO APP.USUARIO (EMAIL, PASSWORD) VALUES ('A', 'A')
-    private static final String SQL_FIND_ALL = "SELECT  *  FROM usuarios WHERE ";
+    private static final String SQL_FIND_ALL = "SELECT  *  FROM clientes WHERE ";
 
     private MotorSQL motorSql;
+
+    private Gson gson;
 
     public UserDAO() {
         this.motorSql = new MotorSQL();
     }
 
-    public int add(Usuario entidad) {
+    /*public int add(Usuario entidad) {
         this.motorSql.connect();
-        String sql = SQL_INSERT
-                + "('" + entidad.getEmail() + " ' , "
-                + " ' " + entidad.getNombre() + " ' , "
-                + " ' " + entidad.getPassword() + " ' , "
-                + " ' " + entidad.getPhone() + " ' )";
         
-        System.out.println("SQL-> " + sql);
+        /*System.out.println("SQL-> " + sql);
         int resp = this.motorSql.execute(sql);
         this.motorSql.disconnect();
         return resp;
 
-    }
+    }*/
 
 
 
-    public boolean findAll(Usuario bean) {
-        boolean bool = true;
-         this.motorSql.connect();
+    public String findAll(Usuario bean) {
+        String bool = "";
+        motorSql.connect();
+        UserDAO userDAO = new UserDAO();
+        Usuario usuario = new Usuario();
+
         String sql = SQL_FIND_ALL
-            + "EMAIL= " +"'" +bean.getEmail()+"'"  + " AND CONTRASENA like " + "'%" +bean.getPassword()+"%'";
+            + "username= " +"'" +bean.getNombre()+"'"  + " AND password like " + "'%" +bean.getPassword()+"%'";
 
         System.out.println("SQL-> " + sql);
         ResultSet rs = this.motorSql.executeQuery(sql);
         try {
             if (!rs.next()){ // la exclamacion hace que te devuelva un booleano en caso de que esté vacio o no
-                bool= false;
+
+                usuario.setNombre(rs.getString("username"));
+                usuario.setPassword(rs.getString("password"));
+
             }else{
-                bool= true;
+                System.out.println("Mal");
             }
         } catch (SQLException e) {
             System.out.println(e);
         }finally{
             motorSql.disconnect();
         }
-        return bool;
+        return this.gson.toJson(usuario);
+    }
+
+    public static void main(String[] args) {
+        UserDAO userDAO = new UserDAO();
+        Usuario usuario = new Usuario();
+        usuario.setNombre("admin");
+        usuario.setPassword("admin");
+        System.out.println(userDAO.findAll(usuario));
     }
 
 }
