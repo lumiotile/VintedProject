@@ -16,7 +16,7 @@ public class ProductoDAO extends Producto{
         private static final String SQL_INSERT = "INSERT INTO USUARIOS (EMAIL, NOMBRE_USUARIO, CONTRASENA, PHONE) VALUES ";
                                                 //INSERT INTO APP.USUARIO (ID, EMAIL, PASSWORD) VALUES (1, 'A', '1234')
                                                 // INSERT INTO APP.USUARIO (EMAIL, PASSWORD) VALUES ('A', 'A')
-    private static final String SQL_FIND_ALL = "SELECT  *  FROM productos WHERE ";
+    private static final String SQL_FIND_ALL = "SELECT  *  FROM productos";
 
     private MotorSQL motorSql;
 
@@ -41,14 +41,12 @@ public class ProductoDAO extends Producto{
                 // hay que ordenarlo en base a como esten los campos en la base de datos
 
                 producto.setNombre(rs.getString("nombre"));
-                producto.setDescripcion(rs.getString("descipcion"));
+                producto.setDescripcion(rs.getString("descripcion"));
                 producto.setPrecio(rs.getFloat("precio"));
 
                 productos.add(producto);
 
             }
-
-
 
         } catch (SQLException e) {
             System.out.println(e);

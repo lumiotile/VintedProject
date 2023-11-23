@@ -22,7 +22,7 @@ public class UserDAO extends Usuario{
 
     private MotorSQL motorSql;
 
-    private Gson gson;
+    private Gson gson = new Gson();
 
     public UserDAO() {
         this.motorSql = new MotorSQL();
@@ -47,25 +47,26 @@ public class UserDAO extends Usuario{
         Usuario usuario = new Usuario();
 
         String sql = SQL_FIND_ALL
-            + "username= " +"'" +bean.getNombre()+"'"  + " AND password like " + "'%" +bean.getPassword()+"%'";
+            + "username="+"'" +bean.getNombre()+"'"  + " AND password like " + "'%" +bean.getPassword()+"%'";
 
         System.out.println("SQL-> " + sql);
         ResultSet rs = this.motorSql.executeQuery(sql);
         try {
-            if (!rs.next()){ // la exclamacion hace que te devuelva un booleano en caso de que esté vacio o no
+            if (rs.next()){ // la exclamacion hace que te devuelva un booleano en caso de que esté vacio o no
 
                 usuario.setNombre(rs.getString("username"));
                 usuario.setPassword(rs.getString("password"));
+                bool = gson.toJson(usuario);
 
             }else{
-                System.out.println("Mal");
+                bool = "";
             }
         } catch (SQLException e) {
             System.out.println(e);
         }finally{
             motorSql.disconnect();
         }
-        return this.gson.toJson(usuario);
+        return bool;
     }
 
     public static void main(String[] args) {

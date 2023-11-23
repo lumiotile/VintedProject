@@ -34,7 +34,11 @@ public class ProductoAction {
         ProductoDAO productoDAO = new ProductoDAO();
         ArrayList<Producto> productos = productoDAO.findAll();
         Gson gson = new Gson();
-        String json = gson.toJson(productos);
+        String json = "{\n" +
+                "    \"message\": \"Login incorrecto. \",\n" +
+                "    \"lstUsers\":";
+
+             json += gson.toJson(productos);
 
         return json;
     }

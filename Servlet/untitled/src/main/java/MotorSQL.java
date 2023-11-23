@@ -9,22 +9,17 @@ public class MotorSQL {
     private Connection conn;
     private Statement st;
     private ResultSet rs;
-
+    private static final String CONTROLADOR = "com.mysql.cj.jdbc.Driver";
 
 
     private static final String USER = "admin";
     private static final String PASS = "12341234";
-    private static final String dbName = "Vinted";
-    private static final String port = "3306";
-    private static final String hostname = "database-1.c54eslr2posn.us-east-1.rds.amazonaws.com";
-    /*private static final String URL = "jdbc:mysql://" + hostname + ":" +
-            port + "/" + dbName + "?user=" + USER + "&password=" + PASS;
-*/
+
     private static final String URL = "jdbc:mysql://database-1.c54eslr2posn.us-east-1.rds.amazonaws.com:3306/Vinted?user=admin&password=12341234";
     public void connect() {
         try {
 
-            //Class.forName(CONTROLADOR);
+            Class.forName(CONTROLADOR);
 
             conn = DriverManager.getConnection(URL);
             System.out.println("Holaa");
