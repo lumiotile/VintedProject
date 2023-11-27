@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import com.example.vinted.R;
 import com.example.vinted.lstProducts.ContractListProducts;
@@ -22,14 +23,19 @@ public class ListProductActivity extends AppCompatActivity implements ContractLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_product);
-        recyclerView = findViewById(R.id.recicler);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         presenter.lstProducts("");
     }
 
     @Override
     public void successProducts(ArrayList<Producto> lstProducts) {
-        recyclerView.setAdapter(new ListProductsAdapter(lstProducts));
+        recyclerView = findViewById(R.id.recicler);
+        if (recyclerView != null && lstProducts != null) {
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            ListProductsAdapter adapter = new ListProductsAdapter(lstProducts);
+            recyclerView.setAdapter(adapter);
+        }else{
+            Log.d("Success products", "successProducts: no ha salido bien");
+        }
 
     }
 

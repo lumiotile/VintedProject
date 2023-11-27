@@ -26,5 +26,32 @@
             app:layout_constraintVertical_bias="0.387"
             app:layout_constraintEnd_toEndOf="parent"
             />
+
+        <Button
+            android:id="@+id/filterWoman"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mujer"
+            tools:layout_editor_absoluteX="15dp"
+            tools:layout_editor_absoluteY="65dp"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/filterMan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hombre"
+            tools:layout_editor_absoluteX="116dp"
+            tools:layout_editor_absoluteY="65dp"
+            tools:ignore="MissingConstraints" />
+
+        <Button
+            android:id="@+id/filterKid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Niño"
+            tools:layout_editor_absoluteX="229dp"
+            tools:layout_editor_absoluteY="65dp"
+            tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 

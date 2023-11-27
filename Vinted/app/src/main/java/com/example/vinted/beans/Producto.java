@@ -1,25 +1,23 @@
 package com.example.vinted.beans;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Producto {
 
-    private String id;
-    private String nombre;
-    private String descripcion;
-    private float precio;
+    /*@SerializedName("id")
+    private String id;*/
 
-    public Producto(String id, String nombre, String descripcion, float precio) {
-        this.id = id;
+    private String nombre;
+
+        private String descripcion;
+
+
+    private String precio;
+
+    public Producto(String nombre, String descripcion, String precio) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precio = precio;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getNombre() {
@@ -38,11 +36,11 @@ public class Producto {
         this.descripcion = descripcion;
     }
 
-    public float getPrecio() {
+    public String getPrecio() {
         return precio;
     }
 
-    public void setPrecio(float precio) {
+    public void setPrecio(String precio) {
         this.precio = precio;
     }
 }

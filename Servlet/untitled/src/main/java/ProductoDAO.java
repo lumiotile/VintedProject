@@ -34,6 +34,9 @@ public class ProductoDAO extends Producto{
 
         System.out.println("SQL-> " + sql);
         ResultSet rs = this.motorSql.executeQuery(sql);
+        if(rs != null){
+            System.out.println("No ha encontrado nada");
+        }
         try {
             while (rs.next()) {// TRANSFOMAR LA COLECCIÓN DEBASE DE DATOS A UN ARRAYLIST
                 Producto producto = new Producto();
@@ -47,6 +50,8 @@ public class ProductoDAO extends Producto{
                 productos.add(producto);
 
             }
+
+            System.out.println("Productos guardados");
 
         } catch (SQLException e) {
             System.out.println(e);

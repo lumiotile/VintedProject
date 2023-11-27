@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import com.google.gson.Gson;
+import com.mysql.cj.log.Log;
 
 
 /**
@@ -31,14 +32,35 @@ public class ProductoAction {
     
 
     public String listAll(){
+        System.out.println("Entrando en el metodo list all");
         ProductoDAO productoDAO = new ProductoDAO();
         ArrayList<Producto> productos = productoDAO.findAll();
-        Gson gson = new Gson();
+        System.out.println("Se ha ejecutado el find all" + Producto.toJson(productos));
         String json = "{\n" +
-                "    \"message\": \"Login incorrecto. \",\n" +
-                "    \"lstUsers\":";
+                "    \"message\": \"Listado de productos correcto. \",\n" +
+                "    \"lstProducts\": [\n";
 
-             json += gson.toJson(productos);
+        int size = productos.size();
+        for (int i = 0; i < size; i++) {
+            Producto producto = productos.get(i);
+            json += "        {\n" +
+                    "            \"nombre\":\"" + producto.getNombre() + "\",\n" +
+                    "            \"descripcion\": \"" + producto.getDescripcion() + "\",\n" +
+                    "            \"precio\": \"" + producto.getPrecio() + "\" \n" +
+                    "        }";
+
+            // Agregar una coma solo si no es el último elemento
+            if (i < size - 1) {
+                json += ",";
+            }
+
+            json += "\n";
+        }
+
+        json += "    ]\n" +
+                "}";
+        System.out.println(json);
+
 
         return json;
     }
