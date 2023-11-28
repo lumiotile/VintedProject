@@ -73,6 +73,7 @@ public class UsuarioAction {
                         "    \"message\": \"Login correcto. \",\n" +
                         "    \"lstUsers\": [\n" +
                         "        {\n" +
+                        "            \"id\":\"" +  usuario.getId() + "\",\n" +
                         "            \"username\":\"" +  usuario.getNombre() + "\",\n" +
                         "            \"token\": \"" +  usuario.getPassword() + "\" \n" +
                         "        }" +
@@ -84,6 +85,7 @@ public class UsuarioAction {
                         "    \"message\": \"Login incorrecto. \",\n" +
                         "    \"lstUsers\": [\n" +
                         "        {\n" +
+                        "            \"id\":\"" +  usuario.getId() + "\",\n" +
                         "            \"username\":" +  usuario.getNombre() + ",\n" +
                         "            \"token\": " +  usuario.getPassword() + "\n" +
                         "        }" +

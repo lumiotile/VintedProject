@@ -19,7 +19,7 @@ public class PresenterListProducts implements ContractListProducts.Presenter, Co
     @Override
     public void lstProducts(String filtro) {
 
-        lstModel.productsAPI("", this);
+        lstModel.productsAPI(filtro, this);
     }
 
     @Override

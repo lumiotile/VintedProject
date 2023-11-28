@@ -34,7 +34,7 @@ public class ModelListProducts implements ContractListProducts.Model {
 
         ApiService apiService = RetrofitCliente.getClient(ApiService.URL).create(ApiService.class);
 
-        Call<JsonProductoData> call =   apiService.getDataProductos("PRODUCTO.LIST");
+        Call<JsonProductoData> call =   apiService.getDataProductos("PRODUCTO.LIST", filtro);
         call.enqueue(new Callback<JsonProductoData>() {
             @Override
             public void onResponse(Call<JsonProductoData> call, Response<JsonProductoData> response) {

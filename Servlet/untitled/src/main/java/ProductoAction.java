@@ -24,17 +24,36 @@ public class ProductoAction {
 
         switch (arrayAction[1]) {
             case "LIST":
-                jsonRespuesta = listAll();
+                jsonRespuesta = listAll(request, response);
                 break;
         }
         return jsonRespuesta;
     }
     
 
-    public String listAll(){
+    public String listAll(HttpServletRequest request, HttpServletResponse response){
         System.out.println("Entrando en el metodo list all");
         ProductoDAO productoDAO = new ProductoDAO();
-        ArrayList<Producto> productos = productoDAO.findAll();
+        ArrayList<Producto> productos = productoDAO.findAll("SELECT  *  FROM productos");
+        String filtro = request.getParameter("FILTRO");
+
+        System.out.println(filtro);
+
+        switch (filtro){
+            case "KID":
+                productos = productoDAO.findAll("SELECT  *  FROM productos WHERE categoria ='KID'");
+                break;
+            case "WOMAN":
+                productos = productoDAO.findAll("SELECT  *  FROM productos WHERE categoria ='WOMAN'");
+                break;
+            case "MAN":
+                productos = productoDAO.findAll("SELECT  *  FROM productos WHERE categoria ='MAN'");
+                break;
+            case "":
+                productos = productoDAO.findAll("SELECT  *  FROM productos");
+                break;
+        }
+
         System.out.println("Se ha ejecutado el find all" + Producto.toJson(productos));
         String json = "{\n" +
                 "    \"message\": \"Listado de productos correcto. \",\n" +

@@ -26,37 +26,37 @@ public class ProductoDAO extends Producto{
 
 
 
-    public ArrayList<Producto> findAll() {
+    public ArrayList<Producto> findAll(String sql) {
 
         ArrayList<Producto> productos = new ArrayList<>();
         this.motorSql.connect();
-        String sql = SQL_FIND_ALL;
 
         System.out.println("SQL-> " + sql);
         ResultSet rs = this.motorSql.executeQuery(sql);
-        if(rs != null){
-            System.out.println("No ha encontrado nada");
-        }
-        try {
-            while (rs.next()) {// TRANSFOMAR LA COLECCIÓN DEBASE DE DATOS A UN ARRAYLIST
-                Producto producto = new Producto();
+        if (rs == null) {
+            System.out.println("Error al ejecutar la consulta");
+        } else {
+            try {
+                while (rs.next()) {// TRANSFOMAR LA COLECCIÓN DEBASE DE DATOS A UN ARRAYLIST
+                    Producto producto = new Producto();
 
-                // hay que ordenarlo en base a como esten los campos en la base de datos
+                    // hay que ordenarlo en base a como esten los campos en la base de datos
 
-                producto.setNombre(rs.getString("nombre"));
-                producto.setDescripcion(rs.getString("descripcion"));
-                producto.setPrecio(rs.getFloat("precio"));
+                    producto.setNombre(rs.getString("nombre"));
+                    producto.setDescripcion(rs.getString("descripcion"));
+                    producto.setPrecio(rs.getFloat("precio"));
 
-                productos.add(producto);
+                    productos.add(producto);
 
+                }
+
+                System.out.println("Productos guardados");
+
+            } catch (SQLException e) {
+                System.out.println(e);
+            } finally {
+                motorSql.disconnect();
             }
-
-            System.out.println("Productos guardados");
-
-        } catch (SQLException e) {
-            System.out.println(e);
-        }finally{
-            motorSql.disconnect();
         }
         return productos;
     }
