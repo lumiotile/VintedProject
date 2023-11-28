@@ -16,6 +16,9 @@
         android:theme="@style/Theme.Vinted"
         tools:targetApi="31">
         <activity
+            android:name=".addProductos.view.AddActivity"
+            android:exported="false" />
+        <activity
             android:name=".filter.view.ActivityFilter"
             android:exported="false" />
         <activity

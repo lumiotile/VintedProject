@@ -1,5 +1,10 @@
-public class Producto {
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
+import java.util.ArrayList;
+
+public class Producto {
+    private int id;
     private String nombre;
     private String descripcion;
     private float precio;
@@ -27,4 +32,28 @@ public class Producto {
     public void setPrecio(float precio) {
         this.precio = precio;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public static String toJsonData(JsonProductoData productos) {
+        GsonBuilder builder = new GsonBuilder();
+        builder.setPrettyPrinting();
+
+        Gson gson = builder.create();
+        return gson.toJson(productos);
+    }
+    public static String toJson(ArrayList<Producto> productos) {
+        GsonBuilder builder = new GsonBuilder();
+        builder.setPrettyPrinting();
+
+        Gson gson = builder.create();
+        return gson.toJson(productos);
+    }
 }
+

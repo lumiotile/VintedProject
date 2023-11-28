@@ -25,7 +25,8 @@ public interface ApiService {
                                        @Query("PASSWORD") String pass);
 
         @GET("MyServlet")
-        Call<JsonProductoData> getDataProductos(@Query("ACTION") String action);
+        Call<JsonProductoData> getDataProductos(@Query("ACTION") String action,
+                                                @Query("FILTRO") String filtro);
 
 
 

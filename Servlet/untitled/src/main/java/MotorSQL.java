@@ -22,7 +22,6 @@ public class MotorSQL {
             Class.forName(CONTROLADOR);
 
             conn = DriverManager.getConnection(URL);
-            System.out.println("Holaa");
 
             st = conn.createStatement();
         //} catch (ClassNotFoundException ex) {

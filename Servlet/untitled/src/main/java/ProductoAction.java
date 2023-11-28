@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import com.google.gson.Gson;
+import com.mysql.cj.log.Log;
 
 
 /**
@@ -23,22 +24,62 @@ public class ProductoAction {
 
         switch (arrayAction[1]) {
             case "LIST":
-                jsonRespuesta = listAll();
+                jsonRespuesta = listAll(request, response);
                 break;
         }
         return jsonRespuesta;
     }
     
 
-    public String listAll(){
+    public String listAll(HttpServletRequest request, HttpServletResponse response){
+        System.out.println("Entrando en el metodo list all");
         ProductoDAO productoDAO = new ProductoDAO();
-        ArrayList<Producto> productos = productoDAO.findAll();
-        Gson gson = new Gson();
-        String json = "{\n" +
-                "    \"message\": \"Login incorrecto. \",\n" +
-                "    \"lstUsers\":";
+        ArrayList<Producto> productos = productoDAO.findAll("SELECT  *  FROM productos");
+        String filtro = request.getParameter("FILTRO");
 
-             json += gson.toJson(productos);
+        System.out.println(filtro);
+
+        switch (filtro){
+            case "KID":
+                productos = productoDAO.findAll("SELECT  *  FROM productos WHERE categoria ='KID'");
+                break;
+            case "WOMAN":
+                productos = productoDAO.findAll("SELECT  *  FROM productos WHERE categoria ='WOMAN'");
+                break;
+            case "MAN":
+                productos = productoDAO.findAll("SELECT  *  FROM productos WHERE categoria ='MAN'");
+                break;
+            case "":
+                productos = productoDAO.findAll("SELECT  *  FROM productos");
+                break;
+        }
+
+        System.out.println("Se ha ejecutado el find all" + Producto.toJson(productos));
+        String json = "{\n" +
+                "    \"message\": \"Listado de productos correcto. \",\n" +
+                "    \"lstProducts\": [\n";
+
+        int size = productos.size();
+        for (int i = 0; i < size; i++) {
+            Producto producto = productos.get(i);
+            json += "        {\n" +
+                    "            \"nombre\":\"" + producto.getNombre() + "\",\n" +
+                    "            \"descripcion\": \"" + producto.getDescripcion() + "\",\n" +
+                    "            \"precio\": \"" + producto.getPrecio() + "\" \n" +
+                    "        }";
+
+            // Agregar una coma solo si no es el último elemento
+            if (i < size - 1) {
+                json += ",";
+            }
+
+            json += "\n";
+        }
+
+        json += "    ]\n" +
+                "}";
+        System.out.println(json);
+
 
         return json;
     }

@@ -42,6 +42,7 @@ public class ModelLogin implements ContractLogin.Model {
                                 if(misDatos!=null && misDatos.getLstUsers().size()>0){
                                     Log.d("LoginAPI", "Datos recibidos correctamente");
                                     Log.e("Datos", misDatos.getLstUsers().get(0).getUsername());
+
                                     respuesta.onFinished(misDatos.getLstUsers().get(0));
                                 }else{
                                     Log.e("LoginAPI", "Error en los datos recibidos");
