@@ -59,22 +59,39 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.387"
             app:layout_constraintEnd_toEndOf="parent"
-            >
-
-        </androidx.recyclerview.widget.RecyclerView>
+            />
 
         <LinearLayout
-            android:layout_width="91dp"
-            android:layout_height="88dp"
+            android:layout_width="424dp"
+            android:layout_height="109dp"
             android:orientation="horizontal"
-            tools:layout_editor_absoluteX="312dp"
-            tools:layout_editor_absoluteY="643dp">
+            tools:layout_editor_absoluteX="-8dp"
+            tools:layout_editor_absoluteY="669dp">
 
                 <Button
-                    android:id="@+id/buttonAdd"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Añadir" />
+                    android:id="@+id/addButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="66dp"
+                    android:layout_weight="1"
+                    android:text="Add"
+                    app:cornerRadius="0dp" />
+
+                <Button
+                    android:id="@+id/noId"
+                    android:layout_width="match_parent"
+                    android:layout_height="66dp"
+                    android:layout_weight="1"
+                    android:text="Button"
+                    app:cornerRadius="0dp" />
+
+                <Button
+                    android:id="@+id/loginButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="66dp"
+                    android:layout_weight="1"
+                    android:text="Log in"
+                    app:cornerRadius="0dp" />
+
         </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -53,7 +53,7 @@ public class LoginActivity extends AppCompatActivity implements ContractLogin.Vi
     public void successLogin(User user) {
         SharedPreferences preferences = getSharedPreferences("user_session", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putString("user_data", user.toString());
+        editor.putString("user_data", user.getId().toString());
         editor.apply();
         Intent intent = new Intent(LoginActivity.this, ListProductActivity.class);
         startActivity(intent);
