@@ -3,6 +3,7 @@ package com.example.vinted;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.example.vinted.login.view.LoginActivity;
@@ -18,3 +19,4 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 }
+

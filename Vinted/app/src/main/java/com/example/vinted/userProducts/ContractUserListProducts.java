@@ -4,7 +4,7 @@ import com.example.vinted.beans.Producto;
 
 import java.util.ArrayList;
 
-public interface ContractListUserProducts {
+public interface ContractUserListProducts {
     
     public interface View{
         public void successProducts(ArrayList<Producto> lstPelicula);

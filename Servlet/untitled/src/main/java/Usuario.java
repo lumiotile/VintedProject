@@ -10,7 +10,7 @@
  */
 public class Usuario {
 
-     private int id;
+    private int id;
     private String password;
     private String nombre;
     private boolean vendedor;
@@ -46,6 +46,11 @@ public class Usuario {
     public void setVendedor(boolean vendedor) {
         this.vendedor = vendedor;
     }
+
+    public void setIdString(String usuariosEncontrados) {
+
+        this.id = Integer.parseInt(usuariosEncontrados);
+    };
 }
     
 

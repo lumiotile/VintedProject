@@ -41,7 +41,7 @@ public class ModelLogin implements ContractLogin.Model {
                                 JsonUserData misDatos = response.body();
                                 if(misDatos!=null && misDatos.getLstUsers().size()>0){
                                     Log.d("LoginAPI", "Datos recibidos correctamente");
-                                    Log.e("Datos", misDatos.getLstUsers().get(0).getUsername());
+                                    Log.e("Datos", String.valueOf(misDatos.getLstUsers().get(0).getId()));
 
                                     respuesta.onFinished(misDatos.getLstUsers().get(0));
                                 }else{

@@ -26,6 +26,9 @@ public class ProductoAction {
             case "LIST":
                 jsonRespuesta = listAll(request, response);
                 break;
+            case "LISTUSER":
+                jsonRespuesta = listAllUser(request, response);
+                break;
         }
         return jsonRespuesta;
     }
@@ -84,6 +87,45 @@ public class ProductoAction {
         return json;
     }
 
+    public String listAllUser(HttpServletRequest request, HttpServletResponse response){
+        System.out.println("Entrando en el metodo list all");
+        ProductoDAO productoDAO = new ProductoDAO();
+
+        String filtro = request.getParameter("FILTRO");
+
+        System.out.println(filtro);
+
+        ArrayList<Producto> productos = productoDAO.findAll("SELECT  *  FROM productos WHERE id_cliente='"+filtro+"'");
+
+        System.out.println("SELECT  *  FROM productos WHERE id_cliente='"+filtro+"'");
+        String json = "{\n" +
+                "    \"message\": \"Listado de productos correcto. \",\n" +
+                "    \"lstProducts\": [\n";
+
+        int size = productos.size();
+        for (int i = 0; i < size; i++) {
+            Producto producto = productos.get(i);
+            json += "        {\n" +
+                    "            \"nombre\":\"" + producto.getNombre() + "\",\n" +
+                    "            \"descripcion\": \"" + producto.getDescripcion() + "\",\n" +
+                    "            \"precio\": \"" + producto.getPrecio() + "\" \n" +
+                    "        }";
+
+            // Agregar una coma solo si no es el último elemento
+            if (i < size - 1) {
+                json += ",";
+            }
+
+            json += "\n";
+        }
+
+        json += "    ]\n" +
+                "}";
+        System.out.println(json);
+
+
+        return json;
+    }
 
 
 }

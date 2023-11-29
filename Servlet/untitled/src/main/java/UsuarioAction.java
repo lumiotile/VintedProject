@@ -64,10 +64,12 @@ public class UsuarioAction {
         
     
             Usuario usuario = new Usuario();
+
                 usuario.setNombre(email);
                 usuario.setPassword(pass);
             UserDAO usuarioDAO = new UserDAO();
             String usuariosEncontrados = usuarioDAO.findAll(usuario);
+            usuario.setIdString(usuariosEncontrados);
             if(usuariosEncontrados != ""){
                 msg = "{\n" +
                         "    \"message\": \"Login correcto. \",\n" +

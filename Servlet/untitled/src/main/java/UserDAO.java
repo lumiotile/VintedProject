@@ -54,9 +54,10 @@ public class UserDAO extends Usuario{
         try {
             if (rs.next()){ // la exclamacion hace que te devuelva un booleano en caso de que esté vacio o no
 
+                usuario.setId(rs.getInt("id"));
                 usuario.setNombre(rs.getString("nombre"));
                 usuario.setPassword(rs.getString("password"));
-                bool = gson.toJson(usuario);
+                bool = String.valueOf(rs.getInt("id"));
 
             }else{
                 bool = "";
@@ -66,15 +67,9 @@ public class UserDAO extends Usuario{
         }finally{
             motorSql.disconnect();
         }
+        System.out.println(bool);
         return bool;
     }
 
-    public static void main(String[] args) {
-        UserDAO userDAO = new UserDAO();
-        Usuario usuario = new Usuario();
-        usuario.setNombre("admin");
-        usuario.setPassword("admin");
-        System.out.println(userDAO.findAll(usuario));
-    }
 
 }

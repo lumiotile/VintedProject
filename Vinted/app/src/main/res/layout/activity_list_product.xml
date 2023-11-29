@@ -7,9 +7,14 @@
     tools:context=".lstProducts.view.ListProductActivity">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:id="@+id/linearParent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
                 <TextView
                     android:id="@+id/titulo"
@@ -23,7 +28,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
                         <Button
@@ -49,48 +54,50 @@
 
                 </LinearLayout>
 
-        </LinearLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recicler"
+                    android:layout_width="412dp"
+                    android:layout_height="600dp">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recicler"
-            android:layout_width="412dp"
-            android:layout_height="398dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.387"
-            app:layout_constraintEnd_toEndOf="parent"
-            />
+                </androidx.recyclerview.widget.RecyclerView>
 
-        <LinearLayout
-            android:layout_width="424dp"
-            android:layout_height="109dp"
-            android:orientation="horizontal"
-            tools:layout_editor_absoluteX="-8dp"
-            tools:layout_editor_absoluteY="669dp">
-
-                <Button
-                    android:id="@+id/addButton"
+                <LinearLayout
+                    android:id="@+id/bottomButtonsLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="66dp"
-                    android:layout_weight="1"
-                    android:text="Add"
-                    app:cornerRadius="0dp" />
+                    android:layout_height="80dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent">
 
-                <Button
-                    android:id="@+id/noId"
-                    android:layout_width="match_parent"
-                    android:layout_height="66dp"
-                    android:layout_weight="1"
-                    android:text="Button"
-                    app:cornerRadius="0dp" />
+                        <Button
+                            android:id="@+id/addButton"
+                            android:layout_width="0dp"
+                            android:layout_height="66dp"
+                            android:layout_weight="1"
+                            android:text="Add"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/noId"
+                            app:cornerRadius="0dp" />
 
-                <Button
-                    android:id="@+id/loginButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="66dp"
-                    android:layout_weight="1"
-                    android:text="Log in"
-                    app:cornerRadius="0dp" />
+                        <Button
+                            android:id="@+id/noId"
+                            android:layout_width="0dp"
+                            android:layout_height="66dp"
+                            android:layout_weight="1"
+                            android:text="Button"
+                            app:layout_constraintStart_toEndOf="@+id/addButton"
+                            app:layout_constraintEnd_toStartOf="@+id/loginButton"
+                            app:cornerRadius="0dp" />
+
+                        <Button
+                            android:id="@+id/loginButton"
+                            android:layout_width="0dp"
+                            android:layout_height="66dp"
+                            android:layout_weight="1"
+                            android:text="Log in"
+                            app:layout_constraintStart_toEndOf="@+id/noId"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:cornerRadius="0dp" />
+                </LinearLayout>
 
         </LinearLayout>
 

@@ -6,7 +6,8 @@ import com.example.vinted.lstProducts.model.ModelListProducts;
 
 import java.util.ArrayList;
 
-public class PresenterListProducts implements ContractListProducts.Presenter, ContractListProducts.Model.OnProductsListener {
+public class
+PresenterListProducts implements ContractListProducts.Presenter, ContractListProducts.Model.OnProductsListener {
     private ContractListProducts.View vista;
     private ModelListProducts lstModel;
 

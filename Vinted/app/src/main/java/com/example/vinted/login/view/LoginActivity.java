@@ -14,7 +14,7 @@ import com.example.vinted.R;
 import com.example.vinted.beans.User;
 import com.example.vinted.login.ContractLogin;
 import com.example.vinted.login.presenter.LoginPresenter;
-import com.example.vinted.lstProducts.view.ListProductActivity;
+import com.example.vinted.userProducts.UserProducts;
 
 public class LoginActivity extends AppCompatActivity implements ContractLogin.View {
 
@@ -53,9 +53,9 @@ public class LoginActivity extends AppCompatActivity implements ContractLogin.Vi
     public void successLogin(User user) {
         SharedPreferences preferences = getSharedPreferences("user_session", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putString("user_data", user.getId().toString());
+        editor.putString("user_data", String.valueOf(user.getId()));
         editor.apply();
-        Intent intent = new Intent(LoginActivity.this, ListProductActivity.class);
+        Intent intent = new Intent(LoginActivity.this, UserProducts.class);
         startActivity(intent);
     }
 
