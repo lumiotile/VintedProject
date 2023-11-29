@@ -9,9 +9,11 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.vinted.R;
+import com.example.vinted.addProductos.view.AddActivity;
 import com.example.vinted.beans.Producto;
 import com.example.vinted.lstProducts.ContractListProducts;
 import com.example.vinted.lstProducts.ListProductsAdapter;
@@ -26,6 +28,8 @@ public class UserProducts extends AppCompatActivity implements ContractUserListP
     private PresenterUserListProducts presenter = new PresenterUserListProducts(this);
     RecyclerView recyclerView;
     ImageView myImageView;
+
+    Button addUserBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +46,14 @@ public class UserProducts extends AppCompatActivity implements ContractUserListP
                 editor.apply();
 
                 Intent intent = new Intent(UserProducts.this, ListProductActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        addUserBtn = findViewById(R.id.addBdButton);
+        addUserBtn.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) {
+                Intent intent = new Intent(UserProducts.this, AddActivity.class);
                 startActivity(intent);
             }
         });

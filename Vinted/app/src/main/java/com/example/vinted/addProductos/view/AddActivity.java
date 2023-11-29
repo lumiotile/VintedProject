@@ -8,10 +8,13 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.vinted.R;
+import com.example.vinted.addProductos.addContract;
 import com.example.vinted.beans.Producto;
 import com.example.vinted.beans.User;
 
-public class AddActivity extends AppCompatActivity {
+public class AddActivity extends AppCompatActivity implements addContract.View {
+
+
     EditText nombreProducto;
     EditText precioProducto;
     EditText descripcionProducto;
@@ -33,8 +36,19 @@ public class AddActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Producto producto  = new Producto(nombreProducto.getText().toString(),descripcionProducto.getText().toString(),precioProducto.getText().toString());
 
+
             }
         });
+
+    }
+
+    @Override
+    public void successAddin(Producto producto) {
+
+    }
+
+    @Override
+    public void failureAddin(String err) {
 
     }
 }
