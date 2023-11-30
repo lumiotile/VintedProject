@@ -135,7 +135,7 @@ public class ProductoAction {
         System.out.println("Entrando en el metodo insertar");
 
         String nombre = request.getParameter("NOMBRE");
-        
+
 
 
     }
