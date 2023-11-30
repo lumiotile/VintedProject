@@ -61,4 +61,30 @@ public class ProductoDAO extends Producto{
         return productos;
     }
 
+    public boolean insertData(String sql) {
+        boolean success = false;
+        this.motorSql.connect();
+
+        try {
+            System.out.println("SQL-> " + sql);
+
+            int rowsAffected = this.motorSql.execute(sql);
+
+            if (rowsAffected > 0) {
+                System.out.println("Inserción exitosa. Filas afectadas: " + rowsAffected);
+                success = true;
+            } else {
+                System.out.println("Error al ejecutar la inserción. No se realizaron cambios en la base de datos.");
+            }
+
+        } finally {
+            motorSql.disconnect();
+        }
+
+        return success;
+    }
+
+
+
+
 }

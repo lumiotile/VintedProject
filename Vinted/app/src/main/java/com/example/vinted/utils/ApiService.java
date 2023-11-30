@@ -29,10 +29,19 @@ public interface ApiService {
                                                 @Query("FILTRO") String filtro);
 
 
+        @GET("MyServlet")
+        Call<JsonProductoData> getAddin(@Query("ACTION") String action,
+                                        @Query("NOMBRE") String nombre,
+                                        @Query("DESCRIPCION") String descripcion,
+                                        @Query("PRECIO") float precio,
+                                        @Query("CATEGORIA") String cate,
+                                        @Query("IDCLIENTE") int idCliente);
 
 
 
-        //@GET("MyServlet")
+
+
+    //@GET("MyServlet")
         //Call<DataMovies> getDataMovies2(@Query("ACTION") String action);
 
 

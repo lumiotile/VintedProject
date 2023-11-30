@@ -29,6 +29,8 @@ public class ProductoAction {
             case "LISTUSER":
                 jsonRespuesta = listAllUser(request, response);
                 break;
+            case "ADD":
+                jsonRespuesta= addProduct(request, response);
         }
         return jsonRespuesta;
     }
@@ -128,4 +130,13 @@ public class ProductoAction {
     }
 
 
+
+    public String addProduct(HttpServletRequest request, HttpServletResponse response){
+        System.out.println("Entrando en el metodo insertar");
+
+        String nombre = request.getParameter("NOMBRE");
+        
+
+
+    }
 }

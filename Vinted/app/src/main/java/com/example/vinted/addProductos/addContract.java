@@ -10,14 +10,14 @@ public interface addContract {
         void failureAddin(String err);
     }
     public interface Model  {
-        void addinAPI(Producto producto, addContract.Model.OnAddinProductsListener addinAPI);
+        void addinAPI(Producto producto, addContract.Model.OnAddinProductsListener addinAPI, String id);
         interface OnAddinProductsListener{
             void onFinished(Producto producto);
             void onFailure(String err);
         }
     }
     public interface Presenter{
-        void addin(Producto producto);
+        void addin(Producto producto, String id);
     }
 }
 
