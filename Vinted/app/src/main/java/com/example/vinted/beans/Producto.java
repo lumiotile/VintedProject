@@ -13,6 +13,26 @@ public class Producto {
 
     private String precio;
 
+    private String categoria;
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public int getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
+    }
+
+    private int idCliente;
+
     public Producto(String nombre, String descripcion, String precio) {
         this.nombre = nombre;
         this.descripcion = descripcion;

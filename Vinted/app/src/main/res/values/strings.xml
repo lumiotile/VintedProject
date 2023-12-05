@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">Vinted</string>
+<string name="app_name">Vinted</string>
+<string-array name="category">
+    <item>WOMAN</item>
+    <item>KID</item>
+    <item>MAN</item>
+</string-array>
 </resources>

@@ -7,6 +7,7 @@
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import com.google.gson.Gson;
 import com.mysql.cj.log.Log;
@@ -134,7 +135,52 @@ public class ProductoAction {
     public String addProduct(HttpServletRequest request, HttpServletResponse response){
         System.out.println("Entrando en el metodo insertar");
 
+        String json = null;
+
+        Producto producto = new Producto();
+
         String nombre = request.getParameter("NOMBRE");
+        String descripcion = request.getParameter("DESCRIPCION");
+        String precio = request.getParameter("PRECIO");
+        String categoria = request.getParameter("CATEGORIA");
+        String idCliente = request.getParameter("IDCLIENTE");
+
+        String sql = "INSERT INTO productos (nombre, descripcion, precio, categoria, id_cliente) VALUES ('"+nombre+"', '"+descripcion+"', "+precio+", '"+categoria+"', "+idCliente+")";
+
+        ProductoDAO productoDAO = new ProductoDAO();
+        producto.setNombre(nombre);
+        producto.setDescripcion(descripcion);
+        producto.setPrecio(Float.parseFloat(precio));
+        producto.setCategoria(categoria);
+        producto.setIdCliente(Integer.parseInt(idCliente));
+
+        if(productoDAO.insertData(sql)){
+            json = "{\n" +
+                    "    \"message\": \"Listado de productos correcto. \",\n" +
+                    "    \"lstProducts\": [\n";
+
+            json += "        {\n" +
+                    "            \"nombre\":\"" + producto.getNombre() + "\",\n" +
+                    "            \"descripcion\": \"" + producto.getDescripcion() + "\",\n" +
+                    "            \"precio\": \"" + producto.getPrecio() + "\" \n" +
+                    "        }";
+
+        }else{
+            json += "{\n" +
+                    "    \"message\": \"Listado de productos correcto. \",\n" +
+                    "    \"lstProducts\": [\n"+
+                    "        {\n" +
+                    "            null}";
+        }
+
+        return json;
+
+
+
+
+
+
+
 
 
 

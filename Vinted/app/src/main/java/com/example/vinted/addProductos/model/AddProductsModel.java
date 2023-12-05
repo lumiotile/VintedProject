@@ -18,10 +18,7 @@ public class AddProductsModel implements addContract.Model{
     @Override
     public void addinAPI(Producto producto, OnAddinProductsListener addinAPI, String id) {
 
-
-
         //Aqui irán los campos que se envian a la base de datos.
-
 
         // Crear una instancia de ApiService
         ApiService apiService = RetrofitCliente.getClient(ApiService.URL).create(ApiService.class);
@@ -41,7 +38,7 @@ public class AddProductsModel implements addContract.Model{
 
             @Override
             public void onFailure(Call<JsonProductoData> call, Throwable t) {
-
+                Log.d("AddinAPI", "Error");
             }
 
 

@@ -8,6 +8,25 @@ public class Producto {
     private String nombre;
     private String descripcion;
     private float precio;
+    private String categoria;
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public int getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
+    }
+
+    private int idCliente;
 
     public String getNombre() {
         return nombre;
