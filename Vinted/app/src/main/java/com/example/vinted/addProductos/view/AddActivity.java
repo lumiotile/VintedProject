@@ -25,6 +25,9 @@ public class AddActivity extends AppCompatActivity implements addContract.View {
     EditText descripcionProducto;
     Button anyadir;
     Spinner spinnerCat;
+    //AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAh
+    //PABLO estuvo Aqui AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAh
+    //AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAh
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +43,6 @@ public class AddActivity extends AppCompatActivity implements addContract.View {
         descripcionProducto = findViewById(R.id.descripcionProducto);
         anyadir = findViewById(R.id.anyadirBtn);
         spinnerCat = findViewById(R.id.spinner);
-    // NOE ESTUVO AQUI, MEREQUETENGE
         anyadir.setOnClickListener(new View.OnClickListener() {
             SharedPreferences preferences = getSharedPreferences("user_session", MODE_PRIVATE);
             String userData = preferences.getString("user_data", null);
