@@ -9,16 +9,19 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.vinted.R;
+import com.example.vinted.RecyclerViewInterface;
 import com.example.vinted.beans.Producto;
 
 import java.util.ArrayList;
 
 public class ListProductsAdapter extends RecyclerView.Adapter<ListProductsAdapter.ContactViewHolder> {
 
+    private final RecyclerViewInterface recyclerViewInterface;
     ArrayList<Producto> listaProductos;
 
-    public ListProductsAdapter(ArrayList<Producto> listaProductos){
+    public ListProductsAdapter(ArrayList<Producto> listaProductos, RecyclerViewInterface recyclerViewInterface){
         this.listaProductos = listaProductos;
+        this.recyclerViewInterface = recyclerViewInterface;
     }
     @NonNull
     @Override
@@ -47,6 +50,18 @@ public class ListProductsAdapter extends RecyclerView.Adapter<ListProductsAdapte
             viewNombre = itemView.findViewById(R.id.nombreView);
             viewDescripcion = itemView.findViewById(R.id.descipcionView);
             viewPrecio = itemView.findViewById(R.id.precioView);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (recyclerViewInterface != null){
+                        int pos = getAdapterPosition();
+                        if(pos != RecyclerView.NO_POSITION){
+                            recyclerViewInterface.onItemClick(pos);
+                        }
+                    }
+                }
+            });
         }
     }
 }

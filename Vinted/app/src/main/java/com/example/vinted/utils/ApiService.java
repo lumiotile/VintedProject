@@ -11,7 +11,7 @@ import retrofit2.http.Headers;
 import retrofit2.http.Query;
 
 public interface ApiService {
-     public static final String URL = "http://192.168.104.55:8080/untitled/";
+     public static final String URL = "http://192.168.1.136:8080/untitled/";
 
       @Headers({
               "Accept: application/json",

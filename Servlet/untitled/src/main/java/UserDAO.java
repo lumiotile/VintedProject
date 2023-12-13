@@ -54,10 +54,10 @@ public class UserDAO extends Usuario{
         try {
             if (rs.next()){ // la exclamacion hace que te devuelva un booleano en caso de que esté vacio o no
 
-                usuario.setId(rs.getInt("id"));
+                usuario.setId(rs.getInt("id_cliente"));
                 usuario.setNombre(rs.getString("nombre"));
                 usuario.setPassword(rs.getString("password"));
-                bool = String.valueOf(rs.getInt("id"));
+                bool = String.valueOf(rs.getInt("id_cliente"));
 
             }else{
                 bool = "";

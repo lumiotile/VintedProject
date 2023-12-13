@@ -10,7 +10,7 @@ import com.example.vinted.lstProducts.model.ModelListProducts;
 public class AddProductsPresenter implements addContract.Presenter, addContract.Model.OnAddinProductsListener{
 
     private addContract.View vista;
-    private AddProductsModel model;
+    private AddProductsModel model = new AddProductsModel();
     @Override
     public void onFinished(Producto producto) {
 

@@ -22,6 +22,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
                     android:text="Productos"
                     android:textSize="26dp"
                     android:textStyle="bold" />
@@ -36,6 +37,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Niño"
+                            android:layout_marginRight="10dp"
                             tools:ignore="MissingConstraints" />
 
                         <Button
@@ -43,6 +45,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Mujer"
+                            android:layout_marginRight="10dp"
                             tools:ignore="MissingConstraints" />
 
                         <Button

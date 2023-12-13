@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.vinted.R;
+import com.example.vinted.RecyclerViewInterface;
 import com.example.vinted.addProductos.view.AddActivity;
 import com.example.vinted.beans.Producto;
 import com.example.vinted.lstProducts.ContractListProducts;
@@ -23,7 +24,7 @@ import com.example.vinted.userProducts.presenter.PresenterUserListProducts;
 
 import java.util.ArrayList;
 
-public class UserProducts extends AppCompatActivity implements ContractUserListProducts.View {
+public class UserProducts extends AppCompatActivity implements ContractUserListProducts.View, RecyclerViewInterface {
 
     private PresenterUserListProducts presenter = new PresenterUserListProducts(this);
     RecyclerView recyclerView;
@@ -67,7 +68,7 @@ public class UserProducts extends AppCompatActivity implements ContractUserListP
         recyclerView = findViewById(R.id.reciclerUser);
         if (recyclerView != null && lstProducts != null) {
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
-            ListProductsAdapter adapter = new ListProductsAdapter(lstProducts);
+            ListProductsAdapter adapter = new ListProductsAdapter(lstProducts, this);
             recyclerView.setAdapter(adapter);
         }else{
             Log.d("Success products", "successProducts: no ha salido bien");
@@ -77,6 +78,11 @@ public class UserProducts extends AppCompatActivity implements ContractUserListP
 
     @Override
     public void failureProducts(String err) {
+
+    }
+
+    @Override
+    public void onItemClick(int position) {
 
     }
 }
